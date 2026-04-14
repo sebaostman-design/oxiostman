@@ -6,8 +6,8 @@ media_folder: "images"
 public_folder: "/images"
 
 locale: "ru"
-site_url: https://oksanaostman.com
-display_url: https://oksanaostman.com
+site_url: https://oxiostman.com
+display_url: https://oxiostman.com
 
 # Shared content schema (used for both RU and EN)
 _content_fields: &content_fields
