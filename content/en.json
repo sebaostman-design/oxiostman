@@ -1,0 +1,112 @@
+{
+  "meta": {
+    "title": "Oksana Ostman — Clinical Psychologist · Online & In-Person Sessions",
+    "description": "Clinical psychologist Oksana Ostman. Support for anxiety, depression, eating disorders, codependency and panic attacks. Online sessions worldwide and in-person appointments in Moscow.",
+    "ogTitle": "Oksana Ostman — Clinical Psychologist",
+    "ogDescription": "Evidence-based psychotherapy. Online worldwide and in-person in Moscow."
+  },
+  "top": {
+    "vk": "VK",
+    "mail": "Email"
+  },
+  "nav": {
+    "about": "About",
+    "services": "Services & Pricing",
+    "contact": "Contact"
+  },
+  "hero": {
+    "eyebrow": "Clinical Psychologist",
+    "name": "Oksana\n*Ostman*",
+    "title": "Clinical Psychologist · Online & In-Person",
+    "desc": "I help people understand themselves, build healthy relationships with themselves and others, and work through anxiety, depression and life's challenges. I practice an evidence-based approach with attention to every individual.",
+    "cta": "Book a consultation"
+  },
+  "about": {
+    "label": "About Me",
+    "title": "Professional\n*journey*",
+    "desc": "I'm a clinical psychologist with many years of experience. I specialise in anxiety disorders, depression, eating disorders and interpersonal difficulties, using evidence-based methods at each client's own pace.",
+    "tabs": [
+      {
+        "id": "education",
+        "label": "Education",
+        "items": [
+          "Higher education in psychology, specialising in clinical psychology",
+          "Additional training in cognitive behavioural therapy (CBT)",
+          "Training in the treatment of eating disorders",
+          "Continuous professional development and supervision"
+        ]
+      },
+      {
+        "id": "experience",
+        "label": "Experience",
+        "items": [
+          "Individual counselling for adults and adolescents",
+          "Work with anxiety and depressive disorders",
+          "Support through difficult life situations and crises",
+          "Online sessions with clients from around the world"
+        ]
+      },
+      {
+        "id": "diplomas",
+        "label": "Credentials",
+        "items": [
+          "Diploma in Clinical Psychology",
+          "CBT Therapist Certificate",
+          "Continuing education certificates",
+          "Attendance at professional conferences"
+        ]
+      }
+    ]
+  },
+  "services": {
+    "label": "What I Work With",
+    "title": "Topics &\n*focus areas*",
+    "desc": "Every person is unique and I approach each situation individually. These are the main themes clients bring to our work together.",
+    "items": [
+      { "name": "Rewriting life scripts", "desc": "Recognise repeating patterns and move beyond them" },
+      { "name": "Healing eating patterns", "desc": "Restore a healthy relationship with food and your body" },
+      { "name": "Working through depression or loss", "desc": "Navigate grief, loss and rebuild inner support" },
+      { "name": "Leaving codependent relationships", "desc": "Reclaim your freedom and healthy boundaries" },
+      { "name": "Building fulfilling relationships", "desc": "Create close, meaningful and mutual partnerships" },
+      { "name": "Restoring self-worth", "desc": "Rebuild grounded self-esteem and inner stability" },
+      { "name": "Panic attacks", "desc": "Understand the nature of panic and learn to manage it" },
+      { "name": "Personal boundaries", "desc": "Set healthy boundaries and grow in confidence" }
+    ]
+  },
+  "pricing": {
+    "label": "Pricing",
+    "title": "Services\n& *rates*",
+    "sub": "Remote and in-person consultations. Session length: 60 minutes.",
+    "cta": "Get in touch",
+    "note": "The first session is an introductory meeting to define your request",
+    "offline": { "label": "In-person session", "format": "On-site · Moscow" },
+    "online": { "label": "Online session", "format": "Zoom / Telegram / any convenient platform" },
+    "currency": "RUB"
+  },
+  "contact": {
+    "label": "Get in Touch",
+    "title": "Book a\n*consultation*",
+    "text": "Message me through any channel that suits you — I'll reply within the day and we'll schedule a time for our first session.",
+    "telegram": "Message on Telegram",
+    "whatsapp": "Message on WhatsApp"
+  },
+  "form": {
+    "name": "Name *",
+    "namePh": "Your name",
+    "phone": "Phone *",
+    "phonePh": "+1 (___) ___-____",
+    "email": "Email",
+    "emailPh": "you@example.com",
+    "age": "Age *",
+    "agePh": "Your age",
+    "message": "Your request",
+    "messagePh": "Briefly describe what you'd like to work on...",
+    "submit": "Send request",
+    "sending": "Sending...",
+    "success": "✓ Request sent. I'll be in touch within the day.",
+    "error": "Couldn't send. Please try again or message me on a messenger."
+  },
+  "footer": {
+    "copy": "© 2026 · Psychologist Oksana Ostman · All rights reserved"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "heroImage": "https://name-119f344.ingress-bonde.ewp.live/wp-content/uploads/2024/05/scale_1200-1.jpg",
+  "prices": {
+    "offline": 1500,
+    "online": 2000
+  },
+  "social": {
+    "instagram": "https://instagram.com",
+    "vk": "https://vk.com",
+    "telegram": "https://t.me",
+    "whatsapp": "https://wa.me",
+    "youtube": "https://youtube.com",
+    "email": "info@oksanaostman.com"
+  }
+}

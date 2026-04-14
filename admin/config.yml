@@ -1,0 +1,182 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+locale: "ru"
+site_url: https://oksanaostman.com
+display_url: https://oksanaostman.com
+
+# Shared content schema (used for both RU and EN)
+_content_fields: &content_fields
+  - label: "Мета-теги (SEO)"
+    name: "meta"
+    widget: "object"
+    collapsed: true
+    fields:
+      - { label: "Title (заголовок вкладки браузера)", name: "title", widget: "string" }
+      - { label: "Description (описание для поиска)", name: "description", widget: "text" }
+      - { label: "OG Title (для соцсетей)", name: "ogTitle", widget: "string" }
+      - { label: "OG Description (для соцсетей)", name: "ogDescription", widget: "text" }
+
+  - label: "Верхняя панель"
+    name: "top"
+    widget: "object"
+    collapsed: true
+    fields:
+      - { label: "Текст «ВКонтакте»", name: "vk", widget: "string" }
+      - { label: "Текст «Почта»", name: "mail", widget: "string" }
+
+  - label: "Меню"
+    name: "nav"
+    widget: "object"
+    collapsed: true
+    fields:
+      - { label: "Обо мне", name: "about", widget: "string" }
+      - { label: "Услуги и цены", name: "services", widget: "string" }
+      - { label: "Контакты", name: "contact", widget: "string" }
+
+  - label: "Главный экран (Hero)"
+    name: "hero"
+    widget: "object"
+    hint: "Используйте *звёздочки* вокруг слова для выделения курсивом. Перенос строки = новая строка."
+    fields:
+      - { label: "Подзаголовок сверху", name: "eyebrow", widget: "string" }
+      - { label: "Имя (большое)", name: "name", widget: "text", hint: "*звёздочки* = курсив, перенос строки = новая строка" }
+      - { label: "Подзаголовок снизу", name: "title", widget: "string" }
+      - { label: "Описание", name: "desc", widget: "text" }
+      - { label: "Кнопка", name: "cta", widget: "string" }
+
+  - label: "Обо мне"
+    name: "about"
+    widget: "object"
+    fields:
+      - { label: "Метка раздела", name: "label", widget: "string" }
+      - { label: "Заголовок", name: "title", widget: "text", hint: "*звёздочки* = курсив" }
+      - { label: "Описание", name: "desc", widget: "text" }
+      - label: "Вкладки"
+        name: "tabs"
+        widget: "list"
+        fields:
+          - { label: "ID (не менять)", name: "id", widget: "string", hint: "Техническое поле — не трогайте" }
+          - { label: "Название вкладки", name: "label", widget: "string" }
+          - { label: "Пункты", name: "items", widget: "list", field: { label: "Пункт", name: "item", widget: "string" } }
+
+  - label: "Услуги / направления"
+    name: "services"
+    widget: "object"
+    fields:
+      - { label: "Метка раздела", name: "label", widget: "string" }
+      - { label: "Заголовок", name: "title", widget: "text", hint: "*звёздочки* = курсив" }
+      - { label: "Описание", name: "desc", widget: "text" }
+      - label: "Карточки услуг"
+        name: "items"
+        widget: "list"
+        fields:
+          - { label: "Название", name: "name", widget: "string" }
+          - { label: "Описание", name: "desc", widget: "text" }
+
+  - label: "Цены"
+    name: "pricing"
+    widget: "object"
+    fields:
+      - { label: "Метка раздела", name: "label", widget: "string" }
+      - { label: "Заголовок", name: "title", widget: "text", hint: "*звёздочки* = курсив" }
+      - { label: "Подзаголовок", name: "sub", widget: "text" }
+      - { label: "Текст кнопки", name: "cta", widget: "string" }
+      - { label: "Примечание", name: "note", widget: "text" }
+      - label: "Офлайн"
+        name: "offline"
+        widget: "object"
+        fields:
+          - { label: "Название", name: "label", widget: "string" }
+          - { label: "Формат", name: "format", widget: "string" }
+      - label: "Онлайн"
+        name: "online"
+        widget: "object"
+        fields:
+          - { label: "Название", name: "label", widget: "string" }
+          - { label: "Формат", name: "format", widget: "string" }
+      - { label: "Валюта (отображение)", name: "currency", widget: "string" }
+
+  - label: "Контакты"
+    name: "contact"
+    widget: "object"
+    fields:
+      - { label: "Метка раздела", name: "label", widget: "string" }
+      - { label: "Заголовок", name: "title", widget: "text", hint: "*звёздочки* = курсив" }
+      - { label: "Текст", name: "text", widget: "text" }
+      - { label: "Кнопка Telegram", name: "telegram", widget: "string" }
+      - { label: "Кнопка WhatsApp", name: "whatsapp", widget: "string" }
+
+  - label: "Форма заявки"
+    name: "form"
+    widget: "object"
+    collapsed: true
+    fields:
+      - { label: "Метка поля «Имя»", name: "name", widget: "string" }
+      - { label: "Подсказка в поле «Имя»", name: "namePh", widget: "string" }
+      - { label: "Метка «Телефон»", name: "phone", widget: "string" }
+      - { label: "Подсказка «Телефон»", name: "phonePh", widget: "string" }
+      - { label: "Метка «Email»", name: "email", widget: "string" }
+      - { label: "Подсказка «Email»", name: "emailPh", widget: "string" }
+      - { label: "Метка «Возраст»", name: "age", widget: "string" }
+      - { label: "Подсказка «Возраст»", name: "agePh", widget: "string" }
+      - { label: "Метка «Запрос»", name: "message", widget: "string" }
+      - { label: "Подсказка «Запрос»", name: "messagePh", widget: "string" }
+      - { label: "Кнопка «Отправить»", name: "submit", widget: "string" }
+      - { label: "Текст при отправке", name: "sending", widget: "string" }
+      - { label: "Сообщение об успехе", name: "success", widget: "string" }
+      - { label: "Сообщение об ошибке", name: "error", widget: "string" }
+
+  - label: "Подвал"
+    name: "footer"
+    widget: "object"
+    collapsed: true
+    fields:
+      - { label: "Копирайт", name: "copy", widget: "string" }
+
+collections:
+  - name: "content"
+    label: "Содержимое сайта"
+    files:
+      - name: "settings"
+        label: "⚙️ Общие настройки"
+        file: "content/settings.json"
+        format: "json"
+        fields:
+          - label: "Фото в шапке"
+            name: "heroImage"
+            widget: "image"
+            required: true
+            hint: "Загрузите фото или оставьте текущее."
+          - label: "Цены (в рублях)"
+            name: "prices"
+            widget: "object"
+            fields:
+              - { label: "Офлайн консультация", name: "offline", widget: "number", value_type: "int", min: 0 }
+              - { label: "Онлайн консультация", name: "online", widget: "number", value_type: "int", min: 0 }
+          - label: "Соцсети и контакты (ссылки)"
+            name: "social"
+            widget: "object"
+            fields:
+              - { label: "Instagram URL", name: "instagram", widget: "string", required: false }
+              - { label: "ВКонтакте URL", name: "vk", widget: "string", required: false }
+              - { label: "Telegram URL", name: "telegram", widget: "string", required: false }
+              - { label: "WhatsApp URL", name: "whatsapp", widget: "string", required: false }
+              - { label: "YouTube URL", name: "youtube", widget: "string", required: false }
+              - { label: "Email", name: "email", widget: "string", required: false }
+
+      - name: "ru"
+        label: "🇷🇺 Русский текст"
+        file: "content/ru.json"
+        format: "json"
+        fields: *content_fields
+
+      - name: "en"
+        label: "🇬🇧 English text"
+        file: "content/en.json"
+        format: "json"
+        fields: *content_fields
