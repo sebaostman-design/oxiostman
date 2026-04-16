@@ -130,6 +130,14 @@ _content_fields: &content_fields
       - { label: "Текст при отправке", name: "sending", widget: "string" }
       - { label: "Сообщение об успехе", name: "success", widget: "string" }
       - { label: "Сообщение об ошибке", name: "error", widget: "string" }
+      - { label: "Согласие на обработку данных (HTML)", name: "consent", widget: "text", hint: "Можно использовать HTML-ссылки" }
+
+  - label: "Доступность"
+    name: "a11y"
+    widget: "object"
+    collapsed: true
+    fields:
+      - { label: "«Перейти к содержимому»", name: "skip", widget: "string" }
 
   - label: "Подвал"
     name: "footer"
@@ -137,6 +145,7 @@ _content_fields: &content_fields
     collapsed: true
     fields:
       - { label: "Копирайт", name: "copy", widget: "string" }
+      - { label: "Ссылка «Политика конфиденциальности»", name: "privacy", widget: "string" }
 
 collections:
   - name: "content"

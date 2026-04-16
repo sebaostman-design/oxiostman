@@ -30,6 +30,8 @@
 <meta name="twitter:image" content="https://name-119f344.ingress-bonde.ewp.live/wp-content/uploads/2024/05/scale_1200-1.jpg">
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='78' font-size='90' font-family='Georgia,serif' fill='%236B7E6D'%3EО%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' fill='%232C2925'/%3E%3Ctext y='138' x='50%25' text-anchor='middle' font-size='140' font-family='Georgia,serif' fill='%23C49A8A'%3EО%3C/text%3E%3C/svg%3E">
+<link rel="manifest" href="/site.webmanifest">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -91,6 +93,17 @@
   a { color: inherit; }
   button { font: inherit; }
   :focus-visible { outline: 2px solid var(--sage-dark); outline-offset: 3px; }
+
+  /* Skip link (accessibility) */
+  .skip-link { position: absolute; top: -48px; left: 0; z-index: 999; padding: 12px 20px; background: var(--text-dark); color: #fff; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; transition: top .2s; }
+  .skip-link:focus { top: 0; outline: none; }
+
+  /* Form consent */
+  .form-consent { display: flex; align-items: flex-start; gap: 12px; margin-top: 18px; font-size: 12px; color: var(--text-light); line-height: 1.65; letter-spacing: 0.01em; }
+  .form-consent input[type="checkbox"] { flex-shrink: 0; margin-top: 3px; width: 16px; height: 16px; accent-color: var(--sage-dark); cursor: pointer; }
+  .form-consent label { cursor: pointer; }
+  .form-consent a { color: var(--sage-dark); text-decoration: underline; }
+  .form-consent a:hover { color: var(--text-dark); }
 
   /* Prevent flash of untranslated content */
   body.loading [data-bind], body.loading [data-bind-html] { visibility: hidden; }
@@ -296,6 +309,7 @@
 </head>
 <body class="loading">
 
+<a href="#main" class="skip-link" data-bind="a11y.skip">Перейти к содержимому</a>
 <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
 <!-- TOP BAR -->
@@ -329,7 +343,7 @@
 </nav>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero" id="main">
   <div class="hero-left">
     <div class="hero-eyebrow" data-bind="hero.eyebrow">Клинический психолог</div>
     <h1 class="hero-name" data-bind-html="hero.name">Оксана<br><em>Остман</em></h1>
@@ -465,6 +479,13 @@
         <label class="form-label" for="f-message" data-bind="form.message"></label>
         <textarea id="f-message" name="message" class="form-textarea" data-bind-attr="placeholder:form.messagePh"></textarea>
       </div>
+      <div class="form-consent">
+        <input type="checkbox" id="f-consent" name="consent" required>
+        <label for="f-consent" data-bind-raw="form.consent">
+          Я согласен(а) на обработку персональных данных в соответствии с
+          <a href="/privacy.html" target="_blank" rel="noopener">политикой конфиденциальности</a>.
+        </label>
+      </div>
       <div class="form-submit-row">
         <button type="submit" class="btn-primary" style="width:100%" id="submitBtn" data-bind="form.submit"></button>
       </div>
@@ -480,6 +501,7 @@
     <a data-social="instagram" rel="noopener">Instagram</a>
     <a data-social="telegram" rel="noopener">Telegram</a>
     <a data-social="whatsapp" rel="noopener">WhatsApp</a>
+    <a href="/privacy.html" data-bind="footer.privacy">Политика конфиденциальности</a>
   </div>
   <div class="footer-copy" data-bind="footer.copy"></div>
 </footer>
@@ -493,6 +515,7 @@
   <input name="email" type="email">
   <input name="age" type="number">
   <textarea name="message"></textarea>
+  <input name="consent" type="checkbox">
 </form>
 
 <script>
@@ -643,10 +666,15 @@
       const v = getPath(dict, el.getAttribute('data-bind'));
       if (v != null) el.textContent = v;
     });
-    // HTML bindings (render *italic* + newlines)
+    // HTML bindings (render *italic* + newlines, html-escaped)
     document.querySelectorAll('[data-bind-html]').forEach(el => {
       const v = getPath(dict, el.getAttribute('data-bind-html'));
       if (v != null) el.innerHTML = renderMarkup(v);
+    });
+    // Raw HTML bindings (content authored in CMS is trusted)
+    document.querySelectorAll('[data-bind-raw]').forEach(el => {
+      const v = getPath(dict, el.getAttribute('data-bind-raw'));
+      if (v != null) el.innerHTML = v;
     });
     // Attribute bindings: "attr:path"
     document.querySelectorAll('[data-bind-attr]').forEach(el => {

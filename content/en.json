@@ -104,9 +104,14 @@
     "submit": "Send request",
     "sending": "Sending...",
     "success": "✓ Request sent. I'll be in touch within the day.",
-    "error": "Couldn't send. Please try again or message me on a messenger."
+    "error": "Couldn't send. Please try again or message me on a messenger.",
+    "consent": "I consent to the processing of my personal data in accordance with the <a href=\"/privacy.html\" target=\"_blank\" rel=\"noopener\">privacy policy</a>."
+  },
+  "a11y": {
+    "skip": "Skip to content"
   },
   "footer": {
-    "copy": "© 2026 · Psychologist Oxana Ostman · All rights reserved"
+    "copy": "© 2026 · Psychologist Oxana Ostman · All rights reserved",
+    "privacy": "Privacy policy"
   }
 }
