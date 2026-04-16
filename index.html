@@ -107,8 +107,11 @@
   .lang-switch { background: none; border: 1px solid rgba(255,255,255,0.3); color: #fff; padding: 4px 10px; border-radius: 2px; cursor: pointer; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; transition: background .2s, border-color .2s; }
   .lang-switch:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.6); }
 
+  /* ─── SCROLL PROGRESS ─── */
+  .scroll-progress { position: fixed; top: 0; left: 0; height: 2px; width: 0; background: linear-gradient(90deg, var(--sage) 0%, var(--dusty-rose) 100%); z-index: 200; transition: width .12s linear; pointer-events: none; }
+
   /* ─── NAVBAR ─── */
-  nav { position: sticky; top: 0; z-index: 100; background: var(--warm-white); border-bottom: 1px solid var(--border); padding: 0 40px; display: flex; justify-content: space-between; align-items: center; height: 72px; box-shadow: 0 2px 20px rgba(44,41,37,0.05); transition: box-shadow .3s; }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(253,250,246,0.92); backdrop-filter: saturate(1.2) blur(10px); -webkit-backdrop-filter: saturate(1.2) blur(10px); border-bottom: 1px solid var(--border); padding: 0 40px; display: flex; justify-content: space-between; align-items: center; height: 72px; box-shadow: 0 2px 20px rgba(44,41,37,0.05); transition: box-shadow .3s; }
   .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; color: var(--text-dark); text-decoration: none; letter-spacing: 0.03em; }
   .nav-logo span { color: var(--sage-dark); }
   .nav-links { display: flex; gap: 36px; align-items: center; }
@@ -145,9 +148,11 @@
   .btn-outline:hover { background: var(--sage); color: #fff; }
 
   .hero-right { position: relative; overflow: hidden; background: var(--dusty-rose-light); }
-  .hero-right::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, var(--dusty-rose-light) 0%, #D4B5A8 100%); }
-  .hero-img { width: 100%; height: 100%; object-fit: cover; object-position: top center; position: relative; z-index: 1; opacity: 0.88; mix-blend-mode: multiply; }
-  .hero-deco { position: absolute; bottom: 40px; left: 40px; z-index: 3; font-family: 'Cormorant Garamond', serif; font-size: 120px; font-weight: 300; color: rgba(255,255,255,0.15); line-height: 1; pointer-events: none; }
+  .hero-img { width: 100%; height: 100%; object-fit: cover; object-position: top center; position: relative; z-index: 1; transition: transform 1.2s cubic-bezier(.2,.7,.2,1); }
+  .hero:hover .hero-img { transform: scale(1.02); }
+  .hero-right::after { content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none; background: linear-gradient(180deg, transparent 55%, rgba(44,41,37,0.28) 100%); }
+  .hero-deco { position: absolute; bottom: 36px; left: 40px; z-index: 3; font-family: 'Cormorant Garamond', serif; font-size: 140px; font-weight: 300; font-style: italic; color: rgba(255,255,255,0.25); line-height: 1; pointer-events: none; text-shadow: 0 2px 20px rgba(44,41,37,0.15); }
+  .hero-frame { position: absolute; inset: 24px; border: 1px solid rgba(255,255,255,0.22); z-index: 3; pointer-events: none; }
 
   /* ─── ABOUT ─── */
   .about-section { background: var(--warm-white); padding: 100px 80px; }
@@ -180,12 +185,15 @@
   .services-header { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 64px; align-items: end; }
   .services-desc { font-size: 15px; color: var(--text-mid); line-height: 1.85; padding-top: 10px; }
   .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
-  .service-card { background: var(--warm-white); padding: 36px 28px; transition: background .25s; position: relative; overflow: hidden; }
-  .service-card::before { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--sage); transition: width .4s ease; }
-  .service-card:hover { background: #fff; }
+  .service-card { background: var(--warm-white); padding: 40px 28px 36px; transition: background .3s ease, transform .3s ease; position: relative; overflow: hidden; }
+  .service-card::before { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: linear-gradient(90deg, var(--sage) 0%, var(--dusty-rose) 100%); transition: width .5s cubic-bezier(.2,.7,.2,1); }
+  .service-card::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at top left, rgba(138,158,140,0.06), transparent 60%); opacity: 0; transition: opacity .3s; pointer-events: none; }
+  .service-card:hover { background: #fff; transform: translateY(-2px); }
   .service-card:hover::before { width: 100%; }
-  .service-num { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 300; color: var(--dusty-rose-light); line-height: 1; margin-bottom: 16px; }
-  .service-name { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 500; color: var(--text-dark); line-height: 1.35; margin-bottom: 12px; }
+  .service-card:hover::after { opacity: 1; }
+  .service-card:hover .service-num { color: var(--dusty-rose); transform: translateY(-2px); }
+  .service-num { font-family: 'Cormorant Garamond', serif; font-size: 44px; font-weight: 300; font-style: italic; color: var(--dusty-rose-light); line-height: 1; margin-bottom: 18px; transition: color .3s, transform .3s; display: inline-block; }
+  .service-name { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 500; color: var(--text-dark); line-height: 1.35; margin-bottom: 12px; letter-spacing: 0.005em; }
   .service-desc { font-size: 13px; color: var(--text-light); line-height: 1.75; }
 
   /* ─── PRICING ─── */
@@ -202,8 +210,8 @@
   .price-card:hover { border-color: var(--sage); background: rgba(138,158,140,0.08); }
   .price-card-label { font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.65); }
   .price-card-format { font-size: 12px; color: rgba(255,255,255,0.35); margin-top: 4px; }
-  .price-card-amount { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; color: #fff; white-space: nowrap; }
-  .price-card-amount span { font-size: 16px; color: rgba(255,255,255,0.45); margin-left: 4px; }
+  .price-card-amount { font-family: 'Cormorant Garamond', serif; font-size: 38px; font-weight: 300; color: #fff; white-space: nowrap; letter-spacing: 0.01em; }
+  .price-currency { font-size: 14px; color: rgba(255,255,255,0.45); margin-left: 8px; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'Jost', sans-serif; font-weight: 400; }
   .pricing-note { font-size: 13px; color: rgba(255,255,255,0.35); margin-top: 16px; }
 
   /* ─── CONTACT ─── */
@@ -213,8 +221,10 @@
   .contact-text { font-size: 15px; color: var(--text-mid); line-height: 1.85; margin-top: 16px; }
   .contact-messengers { display: flex; flex-direction: column; gap: 14px; margin-top: 36px; }
   .messenger-btn { display: flex; align-items: center; gap: 14px; padding: 16px 24px; border: 1px solid var(--border); text-decoration: none; color: var(--text-mid); font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; transition: all .25s; background: var(--cream); min-height: 56px; }
-  .messenger-btn:hover, .messenger-btn:focus-visible { border-color: var(--sage); color: var(--text-dark); background: #fff; }
-  .messenger-icon { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .messenger-btn:hover, .messenger-btn:focus-visible { border-color: var(--sage); color: var(--text-dark); background: #fff; transform: translateX(3px); }
+  .messenger-btn { transition: all .25s ease; }
+  .messenger-icon { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; transition: transform .3s; }
+  .messenger-btn:hover .messenger-icon { transform: scale(1.08); }
   .tg-icon { background: #229ED9; color: #fff; }
   .wa-icon { background: #25D366; color: #fff; }
 
@@ -286,6 +296,8 @@
 </head>
 <body class="loading">
 
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
 <!-- TOP BAR -->
 <div class="topbar">
   <div class="topbar-social">
@@ -329,6 +341,7 @@
   </div>
   <div class="hero-right">
     <img id="heroImg" src="" alt="Оксана Остман" class="hero-img" loading="eager" fetchpriority="high" width="1200" height="1500">
+    <div class="hero-frame" aria-hidden="true"></div>
     <div class="hero-deco" aria-hidden="true">О</div>
   </div>
 </section>
@@ -379,14 +392,14 @@
           <div class="price-card-label" data-bind="pricing.offline.label"></div>
           <div class="price-card-format" data-bind="pricing.offline.format"></div>
         </div>
-        <div class="price-card-amount"><span id="priceOffline">—</span> <span data-bind="pricing.currency"></span></div>
+        <div class="price-card-amount"><span id="priceOffline">—</span><span class="price-currency" data-bind="pricing.currency"></span></div>
       </div>
       <div class="price-card">
         <div>
           <div class="price-card-label" data-bind="pricing.online.label"></div>
           <div class="price-card-format" data-bind="pricing.online.format"></div>
         </div>
-        <div class="price-card-amount"><span id="priceOnline">—</span> <span data-bind="pricing.currency"></span></div>
+        <div class="price-card-amount"><span id="priceOnline">—</span><span class="price-currency" data-bind="pricing.currency"></span></div>
       </div>
     </div>
   </div>
@@ -535,11 +548,12 @@
     const img = document.getElementById('heroImg');
     if (img && s.heroImage) img.src = s.heroImage;
 
-    // Prices
+    // Prices (with non-breaking thousand separator)
+    const fmt = (n) => (n == null ? '' : new Intl.NumberFormat('ru-RU').format(n));
     const off = document.getElementById('priceOffline');
     const on  = document.getElementById('priceOnline');
-    if (off) off.textContent = s.prices?.offline ?? '';
-    if (on)  on.textContent  = s.prices?.online ?? '';
+    if (off) off.textContent = fmt(s.prices?.offline);
+    if (on)  on.textContent  = fmt(s.prices?.online);
 
     // Social links
     const map = {
@@ -776,13 +790,22 @@
     }
   });
 
-  // ─── STICKY NAV SHADOW ───────────────────────────────
+  // ─── STICKY NAV + SCROLL PROGRESS ─────────────────────
   const nav = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    nav.style.boxShadow = window.scrollY > 20
+  const progress = document.getElementById('scrollProgress');
+  function onScroll() {
+    const y = window.scrollY;
+    nav.style.boxShadow = y > 20
       ? '0 4px 30px rgba(44,41,37,0.1)'
       : '0 2px 20px rgba(44,41,37,0.05)';
-  }, { passive: true });
+    if (progress) {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = max > 0 ? Math.min(100, (y / max) * 100) : 0;
+      progress.style.width = pct + '%';
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 </script>
 
 <!-- Netlify Identity widget: handles invite/recovery links that land on the root URL -->
