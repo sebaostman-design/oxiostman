@@ -1,8 +1,8 @@
 {
   "meta": {
-    "title": "Oxana Ostman — Clinical Psychologist · Online & In-Person Sessions",
-    "description": "Clinical psychologist Oxana Ostman. Support for anxiety, depression, eating disorders, codependency and panic attacks. Online sessions worldwide and in-person appointments in Moscow.",
-    "ogTitle": "Oxana Ostman — Clinical Psychologist",
+    "title": "Oxana Östman — Clinical Psychologist · Online & In-Person Sessions",
+    "description": "Clinical psychologist Oxana Östman. Support for anxiety, depression, eating disorders, codependency and panic attacks. Online sessions worldwide and in-person appointments in Moscow.",
+    "ogTitle": "Oxana Östman — Clinical Psychologist",
     "ogDescription": "Evidence-based psychotherapy. Online worldwide and in-person in Moscow."
   },
   "top": {
@@ -16,7 +16,7 @@
   },
   "hero": {
     "eyebrow": "Clinical Psychologist",
-    "name": "Oxana\n*Ostman*",
+    "name": "Oxana\n*Östman*",
     "title": "Clinical Psychologist · Online & In-Person",
     "desc": "I help people understand themselves, build healthy relationships with themselves and others, and work through anxiety, depression and life's challenges. I practice an evidence-based approach with attention to every individual.",
     "cta": "Book a consultation"
@@ -111,7 +111,7 @@
     "skip": "Skip to content"
   },
   "footer": {
-    "copy": "© 2026 · Psychologist Oxana Ostman · All rights reserved",
+    "copy": "© 2026 · Psychologist Oxana Östman · All rights reserved",
     "privacy": "Privacy policy"
   }
 }
